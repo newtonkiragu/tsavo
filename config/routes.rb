@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'sessions/new'
 
   get 'users/new'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-
+  
+  # the landing page
+  match '/home',to: 'pages#home', via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
