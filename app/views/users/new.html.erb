@@ -1,6 +1,10 @@
-<h1>Sign Up</h1>
+<div class="container" style="background: url(/assets/coralbells.png)">
+  <!-- <%= image_tag "coralbells.png", :style => "width:100%"%> -->
 
-<%= form_for @user do |f| %>
+<div class="form-2">
+  <h1>Please Sign up to Proceed</h1>
+
+<%= form_for @user do |f|%>
   <% if @user.errors.any? %>
   <div class="error message">
     <h2>form is invalid</h2>
@@ -27,5 +31,7 @@
     <%= f.label :email %> <br>
     <%= f.text_field :email%>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button" name="submit"><%= f.submit %></p>
   <% end %>
+</div>
+</div>
