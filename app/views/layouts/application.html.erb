@@ -10,7 +10,7 @@
 
   <body>
   <% flash.each do |name|%>
-    <%= content_tag :div, msg, :id => "flash_#{name}"%>
+    <%= content_tag :div, :id => "flash_#{name}"%>
   <% end %>
     <%= yield %>
   </body>
