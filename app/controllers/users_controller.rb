@@ -6,7 +6,7 @@ end
 def create
   @user = User.new(user_params)
   if @user.save
-    redirect_to root_url, :notice =>"Signed Up!"
+    redirect_to home_path, :notice =>"Signed Up!"
   else
     render "new", :notice =>"Please check that your username and/or email is correct"
   end
