@@ -54,6 +54,81 @@
   <%= image_tag "coralbells.png", :style => "width:100%; @media screen and (max-width: 800px) {.images{background-size:cover;}}"%>
     <!-- <img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg" style="width:100%"> -->
 </header>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<article>
+  <div class="item-wrapper">
+    <figure>
+      <div class="image" style="background-image:url(https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLR0dpLWJDU3lMc28);"></div>
+      <div class="lighting"></div>
+    </figure>
+    <div class="item-content">
+      <h1>First Article Title</h1>
+      <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+      <div class="author">Jordan Quinn</div>
+    </div>
+  </div>
+</article>
+<article>
+  <div class="item-wrapper">
+    <figure>
+      <div class="image" style="background-image:url(https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLRmNpcE93R2YtcEE);"></div>
+      <div class="lighting"></div>
+    </figure>
+    <div class="item-content">
+      <h1>Second Article Title</h1>
+      <p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu</p>
+      <div class="author">Edna Hardy</div>
+    </div>
+  </div>
+</article>
+<article>
+  <div class="item-wrapper">
+    <figure>
+      <div class="image" style="background-image:url(https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLWTl4V183QkdOZG8);"></div>
+      <div class="lighting"></div>
+  </figure>
+    <div class="item-content">
+      <h1>Third Article Title</h1>
+      <p>In enim justo rhoncus ut imperdiet a venenatis vitae justo</p>
+      <div class="author">Kayla	Beck</div>
+    </div>
+  </div>
+</article>
+<script>
+    var articles = $('article > .item-wrapper'),
+    lightingRgb = '255,255,255';
+
+articles.mousemove(function(e) {
+  var current = $(this),
+      x = current.width() - e.offsetX * 2,
+      y = current.height() - e.offsetY * 2,
+      rx = -x / 30,
+      ry = y / 24,
+      deg = Math.atan2(y, x) * (180 / Math.PI) + 45;
+  current.css({"transform":"scale(1.05) rotateY("+rx+"deg) rotateX("+ry+"deg)"});
+  $('figure > .lighting',this).css('background','linear-gradient('+deg+'deg, rgba('+lightingRgb+',0.32) 0%, rgba('+lightingRgb+',0) 100%)');
+});
+
+articles.on({
+  'mouseenter':function() {
+    var current = $(this);
+    current.addClass('enter ease').removeClass("leave");
+    setTimeout(function(){
+      current.removeClass('ease');
+    }, 280);
+  },
+  'mouseleave':function() {
+    var current = $(this);
+    current.css({"transform":"rotate(0)"});
+    current.removeClass('enter').addClass("leave");
+    $('figure > .lighting',this).removeAttr('style');
+  }}
+);
+</script>
 <script type="text/javascript">
 // toggle class scroll
 $(window).scroll(function() {
